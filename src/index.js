@@ -1,6 +1,5 @@
-const app = require('./config/express.js')();
+const app = require('./config/express.config.js')();
 
-const port = process.env.PORT || 4000;
+const port = process.env.PORT || 8080;
 
-/* eslint-disable-next-line */
-app.listen(port, () => console.log(`Listening at ${port} port`));
+app.listen(port, () => console.log(`Servidor Rodando na porta ${port}`));
