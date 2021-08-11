@@ -46,6 +46,21 @@ describe('fn: getFoodList', () => {
   });
 });
 
+describe('fn: findFoodByName', () => {
+  const searchedFoods = FoodController.findFoodByName({ query: { name: '4' } });
+
+  it('should return an array', () => {
+    expect(isArray(searchedFoods)).toBeTruthy();
+  });
+
+  it('should return a full list', () => {
+    expect(searchedFoods.length).toBe(2);
+    searchedFoods.forEach((food) =>
+      expect(food.description.includes('4')).toBeTruthy()
+    );
+  });
+});
+
 describe('fn: getFoodById', () => {
   it('should convert number to string', () => {
     const result = FoodController.getFoodById(1);
